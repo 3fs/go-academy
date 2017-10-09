@@ -1,0 +1,36 @@
+image: go-academy/02-webserver:builder
+
+before_script:
+  - export GO_PROJECT_PATH="/go/src/gitlab.com/${CI_PROJECT_NAMESPACE}"
+  - mkdir -p ${GO_PROJECT_PATH}
+  - ln -sf $(pwd) ${GO_PROJECT_PATH}
+  - cd ${GO_PROJECT_PATH}/${CI_PROJECT_NAME}
+
+stages:
+  - test
+  - build
+
+format:
+  stage: test
+  script:
+    - make test/format
+
+lint:
+  stage: test
+  script:
+    - make test/lint
+
+vet:
+  stage: test
+  script:
+    - make test/vet
+
+unit:
+  stage: test
+  script:
+    - make test/unit
+
+build:
+  stage: build
+  script:
+    - make build
