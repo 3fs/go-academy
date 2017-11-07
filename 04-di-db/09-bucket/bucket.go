@@ -3,6 +3,12 @@
 package bucket
 
 type (
+	// Storage describes methods required to handle a set of buckets
+	Storage interface {
+		Create(string) (ReadWriter, error)
+		Remove(string) error
+	}
+
 	// Reader supports methods required to read data
 	Reader interface {
 		Get(int) (string, error)
@@ -19,11 +25,5 @@ type (
 	ReadWriter interface {
 		Reader
 		Writer
-	}
-
-	// Storage describes methods required to handle a set of buckets
-	Storage interface {
-		Create(string) (ReadWriter, error)
-		Remove(string) error
 	}
 )

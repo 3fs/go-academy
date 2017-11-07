@@ -17,8 +17,8 @@ func TestRootHandler(t *testing.T) {
 	rr := httptest.NewRecorder()
 
 	// call it
-	handler := rootHandler(myDB, logger)
-	handler(rr, req)
+	handler := handlers{myDB, logger}
+	handler.root(rr, req)
 
 	// check it
 	if rr.Body.String() != "Found root" {

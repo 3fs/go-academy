@@ -13,7 +13,7 @@ func main() {
 	kv.Add("second", "value")
 
 	// uncomment for race condition
-	go kv.Add("first", "value")
+	// go kv.Add("first", "value")
 
 	time.Sleep(50 * time.Millisecond)
 
