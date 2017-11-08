@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/3fs/go-academy/04-di-db/11-mutex/kvMemory"
+	"github.com/3fs/go-academy/04-di-db/12-mutex/kvMemory"
 )
 
 func main() {
