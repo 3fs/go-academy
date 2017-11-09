@@ -17,6 +17,7 @@ type mockDb struct {
 func (m *mockDb) Read(input string) (string, error) {
 	// validate input
 	if input != m.input {
+		t.Errorf("Expect read with '%s', got '%s'", m.input, input)
 		return "", fmt.Errorf("Expect read with '%s', got '%s'", m.input, input)
 	}
 
