@@ -20,3 +20,7 @@ A deep dive in packaging your codebase into smaller standalone packages and go-k
 ### 04 - DI, context and in-memory database
 
 How to manage dependencies in a future proof manner, pass context between functions to manage some basic "state" and implement a simple in-memory storage.
+
+### 05 - concurrency and channels
+
+What is concurency, goroutines and channels? How and when to use channels and what are some problems that can be solved with them.
