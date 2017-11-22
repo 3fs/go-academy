@@ -8,7 +8,7 @@ import (
 	"os/signal"
 	"strings"
 
-	"github.com/3fs/go-academy/06-concurency-grpc-sql/05-artithmetic/arithmetic"
+	"github.com/3fs/go-academy/06-concurency-grpc-sql/05-arithmetic/arithmetic"
 )
 
 func main() {
@@ -26,7 +26,7 @@ func main() {
 	case <-ctx.Done():
 		fmt.Println("Context closed, stopping")
 	case <-c:
-		fmt.Println("Received a signal, stopping")
+		fmt.Println("\nReceived a signal, stopping")
 	}
 }
 
@@ -45,6 +45,12 @@ func readInput(s *storage, cncFn func()) {
 
 		// trim whitespace
 		input = strings.TrimSpace(input)
+
+		// check for quit
+		if input == "quit" {
+			cncFn()
+			return
+		}
 
 		// calculate it
 		result, err := arithmetic.Calculate(input, s)
